@@ -50,7 +50,7 @@ public final class MacroBuilder
         return this;
     }
     
-    public final MacroBuilder macro(Macro value)
+    public final MacroBuilder macro(String value)
     {
         if(value == null)
             throw new NullPointerException();
@@ -59,7 +59,7 @@ public final class MacroBuilder
             parts.add(new ConstantMacroPart(false, sb.toString()));
             sb.delete(0, sb.length());
         }
-        parts.add(new ConstantMacroPart(true, value.getName()));
+        parts.add(new ConstantMacroPart(true, value));
         return this;
     }
     
@@ -76,7 +76,7 @@ public final class MacroBuilder
     public final MacroBuilder put(CharSequence value) { sb.append(value); return this; }
     
     
-    public final MacroBuilder macro(Supplier<Macro> value)
+    public final MacroBuilder macro(Supplier<String> value)
     {
         if(value == null)
             throw new NullPointerException();
@@ -85,7 +85,7 @@ public final class MacroBuilder
             parts.add(new ConstantMacroPart(false, sb.toString()));
             sb.delete(0, sb.length());
         }
-        parts.add(new VariableMacroPart(true, () -> value.get().getName()));
+        parts.add(new VariableMacroPart(true, () -> value.get()));
         return this;
     }
     

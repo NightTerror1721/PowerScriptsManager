@@ -9,26 +9,18 @@ package nt.ps.manager;
  *
  * @author Asus
  */
-public final class Script
+public abstract class Script extends PSCode<SourceScript>
 {
     private final String name;
-    private String code;
     
-    public static abstract class ScriptConstant
+    Script(String name)
     {
-        @Override
-        public abstract String toString();
-        
-        public boolean isNull() { return false; }
-        public boolean isInteger() { return false; }
-        public boolean isFloat() { return false; }
-        public boolean isBoolean() { return false; }
-        public boolean isString() { return false; }
-        
-        public long toInteger() { throw new UnsupportedOperationException(); }
-        public long toFloat() { throw new UnsupportedOperationException(); }
-        public long toBoolean() { throw new UnsupportedOperationException(); }
+        if(name == null)
+            throw new NullPointerException();
+        if(name.isEmpty())
+            throw new IllegalArgumentException("Invalid empty name");
+        this.name = name;
     }
     
-    
+    public final String getName() { return name; }
 }

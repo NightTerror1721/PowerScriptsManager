@@ -9,10 +9,7 @@ package nt.ps.manager;
  *
  * @author Asus
  */
-public abstract class Snippet
+public abstract class Snippet extends PSCode<SourceSnippet>
 {
     Snippet() {}
-    
-    public abstract void execute();
-    public abstract SourceSnippet source();
 }

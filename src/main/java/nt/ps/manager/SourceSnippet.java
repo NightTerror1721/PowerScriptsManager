@@ -5,21 +5,18 @@
  */
 package nt.ps.manager;
 
+import nt.ps.lang.PSValue;
+import nt.ps.lang.PSVarargs;
+
 /**
  *
  * @author Asus
  */
 public final class SourceSnippet extends Snippet
 {
-    private final SourceScriptManager base;
     private String code = "";
     
-    SourceSnippet(SourceScriptManager base)
-    {
-        if(base == null)
-            throw new NullPointerException();
-        this.base = base;
-    }
+    SourceSnippet() {}
     
     public final void setCode(String code)
     {
@@ -31,7 +28,22 @@ public final class SourceSnippet extends Snippet
     public final String getCode() { return code; }
 
     @Override
-    public final void execute() { throw new UnsupportedOperationException(); }
+    public final PSVarargs execute() { throw new UnsupportedOperationException(); }
+    
+    @Override
+    public final PSVarargs execute(PSValue arg0) { throw new UnsupportedOperationException(); }
+    
+    @Override
+    public final PSVarargs execute(PSValue arg0, PSValue arg1) { throw new UnsupportedOperationException(); }
+    
+    @Override
+    public final PSVarargs execute(PSValue arg0, PSValue arg1, PSValue arg2) { throw new UnsupportedOperationException(); }
+    
+    @Override
+    public final PSVarargs execute(PSValue arg0, PSValue arg1, PSValue arg2, PSValue arg3) { throw new UnsupportedOperationException(); }
+    
+    @Override
+    public final PSVarargs execute(PSVarargs arg0) { throw new UnsupportedOperationException(); }
 
     @Override
     public final SourceSnippet source() { return this; }
